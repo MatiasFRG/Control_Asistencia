@@ -25,7 +25,6 @@ public class Login extends javax.swing.JInternalFrame {
         Correotxt = new javax.swing.JTextField();
         Contraseñatxt = new javax.swing.JPasswordField();
         IngresarBT = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -42,7 +41,6 @@ public class Login extends javax.swing.JInternalFrame {
             }
         });
 
-        Contraseñatxt.setText("jPasswordField1");
         Contraseñatxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ContraseñatxtActionPerformed(evt);
@@ -53,13 +51,6 @@ public class Login extends javax.swing.JInternalFrame {
         IngresarBT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IngresarBTActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -84,10 +75,6 @@ public class Login extends javax.swing.JInternalFrame {
                                 .addComponent(Contraseñatxt)
                                 .addComponent(Correotxt)))))
                 .addContainerGap(112, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(94, 94, 94))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,9 +91,7 @@ public class Login extends javax.swing.JInternalFrame {
                     .addComponent(Contraseñatxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(IngresarBT)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,10 +127,6 @@ public class Login extends javax.swing.JInternalFrame {
     }
     }//GEN-LAST:event_IngresarBTActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void ContraseñatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñatxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ContraseñatxtActionPerformed
@@ -160,7 +141,6 @@ public class Login extends javax.swing.JInternalFrame {
     private javax.swing.JPasswordField Contraseñatxt;
     private javax.swing.JTextField Correotxt;
     private javax.swing.JButton IngresarBT;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
