@@ -5,6 +5,7 @@
 package GUI;
 
 import Data.UsuarioDAO;
+import static GUI.Escritorio.PanelPrincipaljsjs;
 import Modelo.Usuario;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
@@ -53,6 +54,9 @@ public class Gestion_Usuarios extends javax.swing.JInternalFrame {
         CrearUsuarioBT = new javax.swing.JButton();
         ModificarUsuarioBT = new javax.swing.JButton();
         EliminarUsuarioBT = new javax.swing.JButton();
+
+        setClosable(true);
+        setIconifiable(true);
 
         jLabel1.setText("Gestión de Usuarios");
 
@@ -138,7 +142,7 @@ public class Gestion_Usuarios extends javax.swing.JInternalFrame {
                     .addComponent(CrearUsuarioBT)
                     .addComponent(ModificarUsuarioBT)
                     .addComponent(EliminarUsuarioBT))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         pack();

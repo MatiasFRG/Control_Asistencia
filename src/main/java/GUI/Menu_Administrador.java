@@ -40,6 +40,9 @@ public class Menu_Administrador extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         CerrarSesionBT = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+
         jLabel1.setText("Panel de Administración");
 
         GestionUsuarioBT.setText("Gestión de Usuarios");
@@ -57,6 +60,11 @@ public class Menu_Administrador extends javax.swing.JInternalFrame {
         });
 
         CerrarSesionBT.setText("Cerrar Sesión");
+        CerrarSesionBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CerrarSesionBTActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,6 +107,27 @@ public class Menu_Administrador extends javax.swing.JInternalFrame {
             Popelle.setVisible(true);
         
     }//GEN-LAST:event_GestionUsuarioBTActionPerformed
+
+    private void CerrarSesionBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarSesionBTActionPerformed
+        
+    this.dispose(); 
+    
+    for (java.awt.Component comp : PanelPrincipaljsjs.getComponents()) {
+        if (comp instanceof Menu_Administrador) {
+            comp.setVisible(true); // Muestra la que ya existe
+            try {
+                ((javax.swing.JInternalFrame) comp).setSelected(true);
+            } catch (Exception e) { }
+            return;
+        }
+    }
+    
+    
+    Login menu = new Login();
+    PanelPrincipaljsjs.add(menu);
+    menu.setVisible(true);
+        
+    }//GEN-LAST:event_CerrarSesionBTActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
