@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import static GUI.Escritorio.PanelPrincipaljsjs;
+
 /**
  *
  * @author matia
@@ -34,13 +36,18 @@ public class Menu_Administrador extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        GestionUsuarioBT = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         CerrarSesionBT = new javax.swing.JButton();
 
         jLabel1.setText("Panel de Administración");
 
-        jButton1.setText("Gestión de Usuarios");
+        GestionUsuarioBT.setText("Gestión de Usuarios");
+        GestionUsuarioBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GestionUsuarioBTActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Reportes");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +65,7 @@ public class Menu_Administrador extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(131, 131, 131)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1)
+                    .addComponent(GestionUsuarioBT)
                     .addComponent(jLabel1)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                     .addComponent(CerrarSesionBT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -70,7 +77,7 @@ public class Menu_Administrador extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(24, 24, 24)
-                .addComponent(jButton1)
+                .addComponent(GestionUsuarioBT)
                 .addGap(12, 12, 12)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -85,10 +92,18 @@ public class Menu_Administrador extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void GestionUsuarioBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionUsuarioBTActionPerformed
+        
+            Gestion_Usuarios Popelle = new Gestion_Usuarios();          // 1️⃣ Crear la ventana
+            PanelPrincipaljsjs.add(Popelle);      // 2️⃣ Indicar que va dentro del DesktopPane
+            Popelle.setVisible(true);
+        
+    }//GEN-LAST:event_GestionUsuarioBTActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CerrarSesionBT;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton GestionUsuarioBT;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

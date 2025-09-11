@@ -28,14 +28,14 @@ public class Gestion_Usuarios extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        TablaUsuariosTABLE = new javax.swing.JTable();
+        CrearUsuarioBT = new javax.swing.JButton();
+        ModificarUsuarioBT = new javax.swing.JButton();
+        EliminarUsuarioBT = new javax.swing.JButton();
 
         jLabel1.setText("Gestión de Usuarios");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaUsuariosTABLE.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -54,19 +54,34 @@ public class Gestion_Usuarios extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
+        jScrollPane1.setViewportView(TablaUsuariosTABLE);
+        if (TablaUsuariosTABLE.getColumnModel().getColumnCount() > 0) {
+            TablaUsuariosTABLE.getColumnModel().getColumn(0).setResizable(false);
+            TablaUsuariosTABLE.getColumnModel().getColumn(1).setResizable(false);
+            TablaUsuariosTABLE.getColumnModel().getColumn(2).setResizable(false);
+            TablaUsuariosTABLE.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jButton1.setText("Crear Usuario");
+        CrearUsuarioBT.setText("Crear Usuario");
+        CrearUsuarioBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearUsuarioBTActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Modificar Usuario");
+        ModificarUsuarioBT.setText("Modificar Usuario");
+        ModificarUsuarioBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarUsuarioBTActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Eliminar Usuario");
+        EliminarUsuarioBT.setText("Eliminar Usuario");
+        EliminarUsuarioBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarUsuarioBTActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,11 +98,11 @@ public class Gestion_Usuarios extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(CrearUsuarioBT)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)
+                                .addComponent(ModificarUsuarioBT)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3)))
+                                .addComponent(EliminarUsuarioBT)))
                         .addGap(0, 8, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -99,22 +114,40 @@ public class Gestion_Usuarios extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(CrearUsuarioBT)
+                    .addComponent(ModificarUsuarioBT)
+                    .addComponent(EliminarUsuarioBT))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void CrearUsuarioBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearUsuarioBTActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_CrearUsuarioBTActionPerformed
+
+    private void ModificarUsuarioBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarUsuarioBTActionPerformed
+       
+        
+        
+    }//GEN-LAST:event_ModificarUsuarioBTActionPerformed
+
+    private void EliminarUsuarioBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarUsuarioBTActionPerformed
+       
+        
+        
+    }//GEN-LAST:event_EliminarUsuarioBTActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton CrearUsuarioBT;
+    private javax.swing.JButton EliminarUsuarioBT;
+    private javax.swing.JButton ModificarUsuarioBT;
+    private javax.swing.JTable TablaUsuariosTABLE;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
