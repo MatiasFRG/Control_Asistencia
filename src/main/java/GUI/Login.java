@@ -120,6 +120,10 @@ public class Login extends javax.swing.JInternalFrame {
         } else if ("EMPLEADO".equalsIgnoreCase(u.getRol())) {
             JOptionPane.showMessageDialog(this, "✅ Bienvenido Empleado: " + u.getNombre());
             new Menu_Empleado().setVisible(true);
+            Menu_Empleado Popelle = new Menu_Empleado();          // 1️⃣ Crear la ventana
+            PanelPrincipaljsjs.add(Popelle);      // 2️⃣ Indicar que va dentro del DesktopPane
+            Popelle.setVisible(true);
+            
         }
         this.dispose();
     } else {

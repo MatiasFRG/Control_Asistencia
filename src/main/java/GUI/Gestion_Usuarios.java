@@ -4,19 +4,40 @@
  */
 package GUI;
 
+import Data.UsuarioDAO;
+import Modelo.Usuario;
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
+import javax.swing.JOptionPane;
 /**
  *
  * @author matia
  */
 public class Gestion_Usuarios extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Gestion_Usuarios
-     */
+    private UsuarioDAO usuarioDAO = new UsuarioDAO();
+
     public Gestion_Usuarios() {
         initComponents();
+        cargarUsuariosEnTabla();
+    }
+    
+        private void cargarUsuariosEnTabla() {
+        DefaultTableModel modelo = (DefaultTableModel) TablaUsuariosTABLE.getModel();
+        modelo.setRowCount(0); // Limpiar tabla
+
+        List<Usuario> lista = usuarioDAO.listarUsuarios();
+        for (Usuario u : lista) {
+            modelo.addRow(new Object[]{
+                u.getRut(),
+                u.getNombre() + " " + u.getApellido(),
+                u.getCorreo(),
+                u.getRol()
+            });
+        }
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -125,19 +146,76 @@ public class Gestion_Usuarios extends javax.swing.JInternalFrame {
 
     private void CrearUsuarioBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearUsuarioBTActionPerformed
         
-        
+            try {
+        int rut = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese RUT:"));
+        String nombre = JOptionPane.showInputDialog(this, "Ingrese Nombre:");
+        String apellido = JOptionPane.showInputDialog(this, "Ingrese Apellido:");
+        String correo = JOptionPane.showInputDialog(this, "Ingrese Correo:");
+        String password = JOptionPane.showInputDialog(this, "Ingrese Password:");
+        String rol = JOptionPane.showInputDialog(this, "Ingrese Rol:");
+
+        Usuario nuevo = new Usuario(rut, nombre, apellido, correo, password, rol);
+
+        if (usuarioDAO.crearUsuario(nuevo)) {
+            JOptionPane.showMessageDialog(this, "✅ Usuario creado.");
+            cargarUsuariosEnTabla();
+        } else {
+            JOptionPane.showMessageDialog(this, "❌ Error al crear usuario.");
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "⚠ Entrada inválida: " + e.getMessage());
+    }
         
     }//GEN-LAST:event_CrearUsuarioBTActionPerformed
 
     private void ModificarUsuarioBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarUsuarioBTActionPerformed
        
-        
+            int fila = TablaUsuariosTABLE.getSelectedRow();
+    if (fila >= 0) {
+        int rut = (int) TablaUsuariosTABLE.getValueAt(fila, 0);
+
+        String nombre = JOptionPane.showInputDialog(this, "Nuevo Nombre:", TablaUsuariosTABLE.getValueAt(fila, 1));
+        String apellido = JOptionPane.showInputDialog(this, "Nuevo Apellido:");
+        String correo = JOptionPane.showInputDialog(this, "Nuevo Correo:", TablaUsuariosTABLE.getValueAt(fila, 2));
+        String password = JOptionPane.showInputDialog(this, "Nuevo Password:");
+        String rol = JOptionPane.showInputDialog(this, "Nuevo Rol:", TablaUsuariosTABLE.getValueAt(fila, 3));
+
+        Usuario modificado = new Usuario(rut, nombre, apellido, correo, password, rol);
+
+        if (usuarioDAO.modificarUsuario(modificado)) {
+            JOptionPane.showMessageDialog(this, "✅ Usuario modificado.");
+            cargarUsuariosEnTabla();
+        } else {
+            JOptionPane.showMessageDialog(this, "❌ Error al modificar usuario.");
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "⚠ Seleccione un usuario primero.");
+    }
         
     }//GEN-LAST:event_ModificarUsuarioBTActionPerformed
 
     private void EliminarUsuarioBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarUsuarioBTActionPerformed
        
-        
+            int fila = TablaUsuariosTABLE.getSelectedRow();
+    if (fila >= 0) {
+        int rut = (int) TablaUsuariosTABLE.getValueAt(fila, 0);
+
+        int confirm = JOptionPane.showConfirmDialog(this, 
+                "¿Eliminar al usuario con RUT " + rut + "?", 
+                "Confirmar eliminación", 
+                JOptionPane.YES_NO_OPTION);
+
+        if (confirm == JOptionPane.YES_OPTION) {
+            if (usuarioDAO.eliminarUsuario(rut)) {
+                JOptionPane.showMessageDialog(this, "✅ Usuario eliminado.");
+                cargarUsuariosEnTabla();
+            } else {
+                JOptionPane.showMessageDialog(this, "❌ Error al eliminar usuario.");
+            }
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "⚠ Seleccione un usuario primero.");
+    }
         
     }//GEN-LAST:event_EliminarUsuarioBTActionPerformed
 

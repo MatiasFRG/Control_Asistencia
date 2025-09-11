@@ -15,7 +15,7 @@ public class Conexion {
     // Configura tus datos de conexión aquí
     private final String url = "jdbc:mysql://localhost:3306/control_asistencia"; // <-- cambia "tu_basedatos"
     private final String user = "root"; // <-- cambia si tu usuario es distinto
-    private final String password = "palomas132.,"; // <-- coloca tu contraseña de MySQL
+    private final String password = "Matias2449p"; // <-- coloca tu contraseña de MySQL
     
     // Método para conectar
     public Connection conectado() {
