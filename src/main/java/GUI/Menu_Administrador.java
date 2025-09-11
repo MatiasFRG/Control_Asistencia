@@ -37,7 +37,7 @@ public class Menu_Administrador extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         GestionUsuarioBT = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        ReportesBT = new javax.swing.JButton();
         CerrarSesionBT = new javax.swing.JButton();
 
         setClosable(true);
@@ -52,10 +52,10 @@ public class Menu_Administrador extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton2.setText("Reportes");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        ReportesBT.setText("Reportes");
+        ReportesBT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                ReportesBTActionPerformed(evt);
             }
         });
 
@@ -75,7 +75,7 @@ public class Menu_Administrador extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(GestionUsuarioBT)
                     .addComponent(jLabel1)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                    .addComponent(ReportesBT, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                     .addComponent(CerrarSesionBT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(127, Short.MAX_VALUE))
         );
@@ -87,7 +87,7 @@ public class Menu_Administrador extends javax.swing.JInternalFrame {
                 .addGap(24, 24, 24)
                 .addComponent(GestionUsuarioBT)
                 .addGap(12, 12, 12)
-                .addComponent(jButton2)
+                .addComponent(ReportesBT)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(CerrarSesionBT)
                 .addContainerGap(46, Short.MAX_VALUE))
@@ -96,14 +96,18 @@ public class Menu_Administrador extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void ReportesBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportesBTActionPerformed
+        
+            Reportes Popelle = new Reportes();          
+            PanelPrincipaljsjs.add(Popelle);      
+            Popelle.setVisible(true);
+        
+    }//GEN-LAST:event_ReportesBTActionPerformed
 
     private void GestionUsuarioBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionUsuarioBTActionPerformed
         
-            Gestion_Usuarios Popelle = new Gestion_Usuarios();          // 1️⃣ Crear la ventana
-            PanelPrincipaljsjs.add(Popelle);      // 2️⃣ Indicar que va dentro del DesktopPane
+            Gestion_Usuarios Popelle = new Gestion_Usuarios();          
+            PanelPrincipaljsjs.add(Popelle);      
             Popelle.setVisible(true);
         
     }//GEN-LAST:event_GestionUsuarioBTActionPerformed
@@ -114,7 +118,7 @@ public class Menu_Administrador extends javax.swing.JInternalFrame {
     
     for (java.awt.Component comp : PanelPrincipaljsjs.getComponents()) {
         if (comp instanceof Menu_Administrador) {
-            comp.setVisible(true); // Muestra la que ya existe
+            comp.setVisible(true); 
             try {
                 ((javax.swing.JInternalFrame) comp).setSelected(true);
             } catch (Exception e) { }
@@ -133,7 +137,7 @@ public class Menu_Administrador extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CerrarSesionBT;
     private javax.swing.JButton GestionUsuarioBT;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton ReportesBT;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

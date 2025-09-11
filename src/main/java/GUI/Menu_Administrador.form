@@ -28,7 +28,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="GestionUsuarioBT" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2" pref="135" max="32767" attributes="0"/>
+                  <Component id="ReportesBT" pref="135" max="32767" attributes="0"/>
                   <Component id="CerrarSesionBT" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="127" max="32767" attributes="0"/>
@@ -43,7 +43,7 @@
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Component id="GestionUsuarioBT" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+              <Component id="ReportesBT" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="CerrarSesionBT" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="46" max="32767" attributes="0"/>
@@ -65,12 +65,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GestionUsuarioBTActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="ReportesBT">
       <Properties>
         <Property name="text" type="java.lang.String" value="Reportes"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ReportesBTActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="CerrarSesionBT">

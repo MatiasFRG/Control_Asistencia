@@ -113,15 +113,15 @@ public class Login extends javax.swing.JInternalFrame {
 
     if (u != null) {
         if ("ADMIN".equalsIgnoreCase(u.getRol())) {
-            JOptionPane.showMessageDialog(this, "✅ Bienvenido Administrador: " + u.getNombre());
-            Menu_Administrador Popelle = new Menu_Administrador();          // 1️⃣ Crear la ventana
-            PanelPrincipaljsjs.add(Popelle);      // 2️⃣ Indicar que va dentro del DesktopPane
+            JOptionPane.showMessageDialog(this, " Bienvenido Administrador: " + u.getNombre());
+            Menu_Administrador Popelle = new Menu_Administrador();          
+            PanelPrincipaljsjs.add(Popelle);     
             Popelle.setVisible(true);
         } else if ("EMPLEADO".equalsIgnoreCase(u.getRol())) {
-            JOptionPane.showMessageDialog(this, "✅ Bienvenido Empleado: " + u.getNombre());
+            JOptionPane.showMessageDialog(this, " Bienvenido Empleado: " + u.getNombre());
             new Menu_Empleado().setVisible(true);
-            Menu_Empleado Popelle = new Menu_Empleado();          // 1️⃣ Crear la ventana
-            PanelPrincipaljsjs.add(Popelle);      // 2️⃣ Indicar que va dentro del DesktopPane
+            Menu_Empleado Popelle = new Menu_Empleado();          
+            PanelPrincipaljsjs.add(Popelle);      
             Popelle.setVisible(true);
             
         }

@@ -41,7 +41,7 @@ public class UsuarioDAO {
         return user;
     }
 
-    // 🔹 Listar todos los usuarios
+    
     public List<Usuario> listarUsuarios() {
         List<Usuario> lista = new ArrayList<>();
         String sql = "SELECT * FROM usuarios";
@@ -66,7 +66,7 @@ public class UsuarioDAO {
         return lista;
     }
 
-    // 🔹 Crear usuario
+    //  Crear usuario
     public boolean crearUsuario(Usuario u) {
         String sql = "INSERT INTO usuarios (usu_rut, usu_nombre, usu_apellido, usu_correo, usu_password, rol) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection cn = conexion.conectado();
@@ -86,7 +86,7 @@ public class UsuarioDAO {
         }
     }
 
-    // 🔹 Modificar usuario
+    //  Modificar usuario
     public boolean modificarUsuario(Usuario u) {
         String sql = "UPDATE usuarios SET usu_nombre=?, usu_apellido=?, usu_correo=?, usu_password=?, rol=? WHERE usu_rut=?";
         try (Connection cn = conexion.conectado();
@@ -106,7 +106,7 @@ public class UsuarioDAO {
         }
     }
 
-    // 🔹 Eliminar usuario
+    //  Eliminar usuario
     public boolean eliminarUsuario(int rut) {
         String sql = "DELETE FROM usuarios WHERE usu_rut=?";
         try (Connection cn = conexion.conectado();
