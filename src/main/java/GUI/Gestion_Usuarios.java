@@ -153,7 +153,7 @@ public class Gestion_Usuarios extends javax.swing.JInternalFrame {
  
           try {
         int rut = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese RUT:"));
-        
+
         // Validar RUT duplicado
         List<Usuario> lista = usuarioDAO.listarUsuarios();
         for (Usuario u : lista) {
@@ -165,31 +165,44 @@ public class Gestion_Usuarios extends javax.swing.JInternalFrame {
 
         String nombre = JOptionPane.showInputDialog(this, "Ingrese Nombre:");
         String apellido = JOptionPane.showInputDialog(this, "Ingrese Apellido:");
-        String correo = JOptionPane.showInputDialog(this, "Ingrese Correo:");
-        String password = JOptionPane.showInputDialog(this, "Ingrese Password:");
 
-        // Validaciones de campos vacíos
-        if (nombre == null || nombre.trim().isEmpty() ||
-            apellido == null || apellido.trim().isEmpty() ||
-            correo == null || correo.trim().isEmpty() ||
-            password == null || password.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "⚠ Todos los campos son obligatorios.");
-            return;
+        // 🔹 Validación inmediata de correo
+        String correo = null;
+        boolean correoValido = false;
+        while (!correoValido) {
+            correo = JOptionPane.showInputDialog(this, "Ingrese Correo (solo @gmail.com):");
+
+            if (correo == null) { // Cancelado
+                JOptionPane.showMessageDialog(this, " Creación cancelada.");
+                return;
+            }
+
+            if (correo.matches("^[a-zA-Z0-9.]+@gmail\\.com$")) {
+                correoValido = true;
+            } else {
+                JOptionPane.showMessageDialog(this, " El correo debe terminar en @gmail.com y solo usar letras, números y puntos.");
+            }
         }
 
-        // Validar correo
-        if (!correo.contains("@") || !correo.contains(".")) {
-            JOptionPane.showMessageDialog(this, "⚠ Correo inválido.");
-            return;
+        // 🔹 Validación inmediata de password
+        String password = null;
+        boolean passValida = false;
+        while (!passValida) {
+            password = JOptionPane.showInputDialog(this, "Ingrese Password (mínimo 4 caracteres):");
+
+            if (password == null) { // Cancelado
+                JOptionPane.showMessageDialog(this, " Creación cancelada.");
+                return;
+            }
+
+            if (password.length() >= 4) {
+                passValida = true;
+            } else {
+                JOptionPane.showMessageDialog(this, " La contraseña debe tener al menos 4 caracteres.");
+            }
         }
 
-        // Validar password mínimo
-        if (password.length() < 4) {
-            JOptionPane.showMessageDialog(this, "⚠ La contraseña debe tener al menos 4 caracteres.");
-            return;
-        }
-
-        // ComboBox de roles
+        // 🔹 ComboBox de roles
         String[] roles = {"Admin", "Empleado"};
         JComboBox<String> comboRoles = new JComboBox<>(roles);
         int opcion = JOptionPane.showConfirmDialog(this, comboRoles, "Seleccione Rol", JOptionPane.OK_CANCEL_OPTION);
@@ -200,27 +213,25 @@ public class Gestion_Usuarios extends javax.swing.JInternalFrame {
             Usuario nuevo = new Usuario(rut, nombre, apellido, correo, password, rol);
 
             if (usuarioDAO.crearUsuario(nuevo)) {
-                JOptionPane.showMessageDialog(this, "✅ Usuario creado.");
+                JOptionPane.showMessageDialog(this, " Usuario creado.");
                 cargarUsuariosEnTabla();
             } else {
-                JOptionPane.showMessageDialog(this, "❌ Error al crear usuario.");
+                JOptionPane.showMessageDialog(this, " Error al crear usuario.");
             }
         } else {
-            JOptionPane.showMessageDialog(this, "⚠ Creación cancelada.");
+            JOptionPane.showMessageDialog(this, " Creación cancelada.");
         }
     } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "⚠ El RUT debe ser numérico.");
+        JOptionPane.showMessageDialog(this, " El RUT debe ser numérico.");
     } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "⚠ Error: " + e.getMessage());
-    }
-
-        
+        JOptionPane.showMessageDialog(this, " Error: " + e.getMessage());
+    }  
         
     }//GEN-LAST:event_CrearUsuarioBTActionPerformed
 
     private void ModificarUsuarioBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarUsuarioBTActionPerformed
-       
-          int fila = TablaUsuariosTABLE.getSelectedRow();
+
+           int fila = TablaUsuariosTABLE.getSelectedRow();
     if (fila >= 0) {
         int rut = (int) TablaUsuariosTABLE.getValueAt(fila, 0);
 
@@ -238,17 +249,19 @@ public class Gestion_Usuarios extends javax.swing.JInternalFrame {
             return;
         }
 
-        if (!correo.contains("@") || !correo.contains(".")) {
-            JOptionPane.showMessageDialog(this, " Correo inválido.");
+        // Validar correo SOLO gmail.com
+        if (!correo.matches("^[a-zA-Z0-9.]+@gmail\\.com$")) {
+            JOptionPane.showMessageDialog(this, " El correo debe ser válido y terminar en @gmail.com");
             return;
         }
 
+        // Validar password mínimo
         if (password.length() < 4) {
             JOptionPane.showMessageDialog(this, " La contraseña debe tener al menos 4 caracteres.");
             return;
         }
 
-        // Rol con ComboBox en vez de texto
+        // Rol con ComboBox
         String[] roles = {"Admin", "Empleado"};
         JComboBox<String> comboRoles = new JComboBox<>(roles);
         comboRoles.setSelectedItem(TablaUsuariosTABLE.getValueAt(fila, 3)); // rol actual
@@ -270,8 +283,8 @@ public class Gestion_Usuarios extends javax.swing.JInternalFrame {
         }
     } else {
         JOptionPane.showMessageDialog(this, " Seleccione un usuario primero.");
-    }  
-
+    } 
+        
     }//GEN-LAST:event_ModificarUsuarioBTActionPerformed
 
     private void EliminarUsuarioBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarUsuarioBTActionPerformed
