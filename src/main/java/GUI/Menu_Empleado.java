@@ -14,6 +14,10 @@ public class Menu_Empleado extends javax.swing.JInternalFrame {
      * Creates new form Menu_Empleado
      */
     public Menu_Empleado() {
+        super("Empleado", true, true, true, true);
+        setSize(800, 500);
+        setLocation(50, 50);
+        setVisible(true);
         initComponents();
     }
 
